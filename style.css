@@ -1,0 +1,2846 @@
+/* =========================
+   ОСНОВНЫЕ НАСТРОЙКИ
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #f7f3ed;
+    color: #2b2520;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* =========================
+   ШАПКА
+   ========================= */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 4vw;
+
+    background: rgba(247, 243, 237, 0.88);
+    backdrop-filter: blur(8px);
+}
+/* =====================================
+   СКРЫТИЕ ШАПКИ ПРИ ПРОКРУТКЕ
+   ===================================== */
+
+.site-header {
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+}
+
+.site-header.header-hidden {
+    transform: translateY(-110%);
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 500;
+}
+
+.site-header nav {
+    display: flex;
+    gap: 35px;
+}
+
+.site-header nav a {
+    color: #2b2520;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.site-header nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   ГЛАВНЫЙ ЭКРАН
+   ========================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #f7f3ed;
+}
+/* Отступ под фиксированной шапкой */
+.hero {
+    margin-top: 82px;
+}
+
+.family-photo {
+    width: 100%;
+    height: auto;
+
+    display: block;
+}
+
+
+/* =========================
+   ПОДПИСИ НА ФОТО
+   ========================= */
+
+.family-person {
+    position: absolute;
+    z-index: 10;
+}
+
+.family-person a {
+    display: block;
+
+    padding: 8px 15px;
+
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(25, 22, 20, 0.25);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 10px;
+
+    font-size: 20px;
+    opacity: 0.55;
+
+    text-decoration: none;
+
+    backdrop-filter: blur(4px);
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        opacity 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.family-person a:hover {
+    background: rgba(45, 40, 35, 0.42);
+    border-color: rgba(255, 255, 255, 0.22);
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    opacity: 1;
+}
+
+
+/* Папа Лёша */
+.papa {
+    top: 17%;
+    left: 52%;
+}
+
+/* Мама Таня */
+.mama {
+    top: 26%;
+    left: 19%;
+}
+
+/* Рома */
+.roma {
+    top: 31%;
+    right: 15%;
+}
+
+/* Оля */
+.olya {
+    bottom: 40%;
+    left: 28%;
+}
+
+/* Даша */
+.dasha {
+    top: 42%;
+    left: 55%;
+}
+
+
+/* =========================
+   РАЗДЕЛЫ ЧЛЕНОВ СЕМЬИ
+   ========================= */
+
+.person-section {
+    min-height: 70vh;
+
+    padding: 120px 8vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-bottom: 1px solid #ddd2c5;
+}
+
+.person-section h2 {
+    margin: 0 0 25px;
+
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.person-section p {
+    max-width: 700px;
+
+    font-size: 21px;
+    line-height: 1.7;
+}
+.mobile-menu-button {
+    display: none;
+}
+
+/* =========================
+   МОБИЛЬНАЯ ВЕРСИЯ
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 60px;
+    padding: 0 20px;
+
+    z-index: 1000;
+
+    background: rgba(250, 247, 241, 0.92);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border-bottom: 1px solid rgba(80, 65, 50, 0.12);
+    }
+
+    body {
+    padding-top: 60px;
+    }
+
+    .site-header h1 {
+        font-size: 25px;
+    }
+
+    
+
+.site-header nav {
+    display: none;
+}
+.site-header nav.mobile-menu-open {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 60px;
+    right: 20px;
+
+    width: 180px;
+
+    padding: 10px;
+
+    background: rgba(255, 250, 242, 0.96);
+
+    border: 1px solid rgba(80, 65, 50, 0.15);
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(60, 45, 30, 0.12);
+
+    z-index: 2000;
+}
+
+.site-header nav.mobile-menu-open a {
+    padding: 12px 14px;
+
+    text-decoration: none;
+
+    color: #4a3a2a;
+
+    font-size: 17px;
+
+    border-radius: 8px;
+}
+
+.site-header nav.mobile-menu-open a:active {
+    background: rgba(80, 65, 50, 0.08);
+}
+
+.mobile-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    border: 1px solid rgba(80, 65, 50, 0.18);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    color: #4a3a2a;
+
+    font-size: 24px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+    .hero {
+        height: auto;
+        min-height: 0;
+        margin-top: 60px;
+    }
+
+    .family-person a {
+        padding: 5px 8px;
+        font-size: 14px;
+    }
+
+    .papa {
+        top: 17%;
+        left: 42%;
+    }
+
+    .mama {
+        top: 22%;
+        left: 11%;
+    }
+
+    .roma {
+        top: 32%;
+        right: 12%;
+    }
+
+    .olya {
+        bottom: 35%;
+        left: 26%;
+    }
+
+    .dasha {
+        top: 38%;
+        left: 55%;
+    }
+
+    .person-section {
+        min-height: 0;
+        padding: 45px 25px;
+    }
+
+    .person-section h2 {
+        font-size: 38px;
+    }
+}
+
+
+/* На телефоне шапка уже учитывается через body padding */
+@media (max-width: 800px) {
+    
+}
+/* Кнопка возврата наверх */
+.to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(80, 65, 50, 0.25);
+    border-radius: 50%;
+    background: rgba(255, 250, 242, 0.85);
+    color: #4a3a2a;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.to-top:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 250, 242, 0.98);
+}
+
+.to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+/* ================================
+   Блок члена семьи
+   ================================ */
+
+.person-intro {
+    max-width: 1000px;
+    margin: 0 auto 45px;
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.person-portrait {
+    flex: 0 0 220px;
+}
+
+.portrait-placeholder {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background: rgba(120, 95, 70, 0.10);
+    border: 1px solid rgba(120, 95, 70, 0.18);
+
+    color: rgba(74, 58, 42, 0.65);
+    font-family: Georgia, serif;
+    font-size: 24px;
+}
+
+.person-info {
+    flex: 1;
+}
+
+.person-info h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.person-info p {
+    max-width: 650px;
+    margin: 0;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+
+/* Галерея */
+
+/* Галерея по годам */
+
+.person-gallery {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.year-gallery {
+    margin-bottom: 38px;
+}
+
+.year-gallery h3 {
+    position: relative;
+
+    margin: 0 0 24px;
+
+    padding-bottom: 10px;
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 0.04em;
+
+    color: #4a3a2a;
+}
+
+.year-gallery h3::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 42px;
+    height: 1px;
+
+    background: rgba(120, 95, 70, 0.30);
+
+    transform: translateX(-50%);
+}
+
+.year-photos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.year-photos img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center 35%;
+
+    border-radius: 12px;
+
+    box-shadow: 0 6px 18px rgba(60, 45, 30, 0.10);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.year-photos img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(60, 45, 30, 0.16);
+}
+
+.photo-placeholder {
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+    background: rgba(120, 95, 70, 0.08);
+    border: 1px solid rgba(120, 95, 70, 0.14);
+
+    color: rgba(74, 58, 42, 0.55);
+    font-size: 16px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.photo-placeholder:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(60, 45, 30, 0.12);
+}
+
+
+/* Кнопка возврата */
+
+.person-back {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.person-back a {
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    color: #4a3a2a;
+    background: rgba(120, 95, 70, 0.08);
+    border: 1px solid rgba(120, 95, 70, 0.15);
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.person-back a:hover {
+    background: rgba(120, 95, 70, 0.14);
+    transform: translateY(-2px);
+}
+
+
+/* ================================
+   Телефон Android
+   ================================ */
+
+@media (max-width: 600px) {
+
+    .person-intro {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+
+    .person-portrait {
+        flex: none;
+    }
+
+    .person-portrait-image {
+    width: 170px;
+    height: 170px;
+}
+
+    .person-info p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .year-gallery {
+    margin-bottom: 30px;
+}
+
+.year-gallery h3 {
+    font-size: 21px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+}
+
+.year-gallery h3::after {
+    width: 34px;
+}
+
+.year-photos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.year-photos img {
+    border-radius: 10px;
+}
+
+    .photo-placeholder {
+        border-radius: 10px;
+        font-size: 14px;
+    }
+
+    .person-back {
+        margin-top: 30px;
+    }
+
+}
+/* Портрет члена семьи */
+
+.person-portrait-image {
+    width: 220px;
+    height: 220px;
+
+    display: block;
+
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+
+    border: 1px solid rgba(120, 95, 70, 0.18);
+    box-shadow: 0 6px 18px rgba(60, 45, 30, 0.10);
+}
+.person-section {
+    scroll-margin-top: 100px;
+}
+/* ================================
+   Lightbox — просмотр фотографий
+   ================================ */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(20, 18, 16, 0.88);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lightbox.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-image {
+    max-width: 88vw;
+    max-height: 86vh;
+
+    width: auto;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Кнопка закрытия Lightbox */
+
+.lightbox-close {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.90);
+
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 0.9;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.14),
+        inset 0 1px 1px rgba(255, 255, 255, 0.10);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* Стрелки Lightbox */
+
+.lightbox-arrow {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 50px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.88);
+
+    font-size: 44px;
+    font-weight: 300;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.16),
+        inset 0 1px 1px rgba(255, 255, 255, 0.10);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.3s ease,
+        color 0.3s ease;
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(255, 255, 255, 0.24);
+    color: #ffffff;
+    transform: scale(1.05);
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.20),
+        inset 0 1px 1px rgba(255, 255, 255, 0.14);
+}
+
+.lightbox-arrow:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.26);
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.22),
+        inset 0 1px 1px rgba(255, 255, 255, 0.16);
+}
+
+.lightbox-prev:hover {
+    transform: translateY(-50%) translateX(-3px);
+}
+
+.lightbox-next:hover {
+    transform: translateY(-50%) translateX(3px);
+}
+
+
+/* Телефон */
+
+@media (max-width: 600px) {
+
+    .lightbox {
+        padding: 15px;
+    }
+
+    .lightbox-image {
+        max-width: 94vw;
+        max-height: 80vh;
+    }
+
+    .lightbox-close {
+        top: 12px;
+        right: 12px;
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 30px;
+    }
+
+    .lightbox-arrow {
+        width: 42px;
+        height: 55px;
+
+        font-size: 38px;
+    }
+
+    .lightbox-prev {
+        left: 8px;
+    }
+
+    .lightbox-next {
+        right: 8px;
+    }
+
+}
+/* Индикатор фотографии */
+
+/* Счётчик фотографии */
+
+.lightbox-counter {
+    position: absolute;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform: translateX(-50%);
+
+    padding: 6px 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.78);
+
+    font-family: Georgia, serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.2;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.14),
+        inset 0 1px 1px rgba(255, 255, 255, 0.08);
+
+    z-index: 3;
+
+    transition:
+        opacity 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+@media (max-width: 600px) {
+
+    .lightbox-counter {
+        bottom: 18px;
+
+        font-size: 13px;
+        padding: 5px 11px;
+
+        border-radius: 16px;
+    }
+
+}
+/* ================================
+   НАШ АЛЬБОМ
+   ================================ */
+
+.album-section {
+    min-height: 70vh;
+    padding: 120px 8vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom: 1px solid #ddd2c5;
+    scroll-margin-top: 100px;
+}
+
+.album-section h2 {
+    margin: 0 0 12px;
+
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.album-description {
+    margin: 0 0 45px;
+
+    font-size: 20px;
+    line-height: 1.6;
+
+    color: rgba(43, 37, 32, 0.70);
+}
+
+.album-folders {
+    width: 100%;
+    max-width: 900px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.album-folder {
+    min-height: 180px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: rgba(120, 95, 70, 0.06);
+    border: 1px solid rgba(120, 95, 70, 0.15);
+
+    color: #4a3a2a;
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.album-folder:hover {
+    transform: translateY(-5px);
+
+    background: rgba(120, 95, 70, 0.11);
+    border-color: rgba(120, 95, 70, 0.28);
+
+    box-shadow: 0 10px 25px rgba(60, 45, 30, 0.10);
+}
+
+
+
+.album-folder span {
+    font-family: Georgia, serif;
+    font-size: 27px;
+}
+
+
+/* Телефон */
+
+@media (max-width: 600px) {
+
+    .album-section {
+        padding: 90px 25px;
+    }
+
+    .album-section h2 {
+        font-size: 38px;
+    }
+
+    .album-description {
+        margin-bottom: 30px;
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .album-folders {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .album-folder {
+        min-height: 140px;
+    }
+
+    
+
+    .album-folder span {
+        font-size: 24px;
+    }
+
+}
+/* ================================
+   АЛЬБОМ — ФОТОГРАФИИ ГОДА
+   ================================ */
+
+.album-year-section {
+    padding: 100px 8vw;
+    scroll-margin-top: 100px;
+}
+
+.album-year-section h2 {
+    margin: 0 0 35px;
+
+    text-align: center;
+
+    font-size: 38px;
+    font-weight: 500;
+}
+
+.album-year-photos {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.album-year-photos img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+    object-position: center 35%;
+
+    display: block;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 22px rgba(60, 45, 30, 0.10);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.album-year-photos img:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 28px rgba(60, 45, 30, 0.16);
+}
+
+
+/* Телефон */
+
+@media (max-width: 600px) {
+
+    .album-year-section {
+        padding: 80px 20px;
+    }
+
+    .album-year-section h2 {
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+
+    .album-year-photos {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+}
+
+/* ================================
+   КНОПКА «К АЛЬБОМАМ»
+   ================================ */
+
+.back-to-album {
+    display: block;
+
+    width: fit-content;
+
+    margin: 35px auto 0;
+
+    color: rgba(74, 58, 42, 0.75);
+
+    font-family: Georgia, serif;
+    font-size: 18px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.back-to-album:hover {
+    color: #4a3a2a;
+
+    transform: translateY(-2px);
+}
+
+/* Фото в разделе «О нас» */
+
+.about-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.about-background {
+    width: 100%;
+    min-height: 1000px;
+
+    background-image:
+        linear-gradient(
+            rgba(247, 243, 237, 0.78),
+            rgba(247, 243, 237, 0.78)
+        ),
+        url("images/family/about-family.jpg");
+
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    padding: 55px 20px 60px;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-content h2 {
+    text-align: center;
+    font-size: 48px;
+    margin: 0 0 45px;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0 0 24px;
+}
+/* Мобильная версия раздела «О нас» */
+
+@media (max-width: 600px) {
+
+    .about-background {
+        min-height: auto;
+
+        padding: 35px 18px 25px;
+
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-position: center center;
+
+        background-image:
+            linear-gradient(
+                rgba(247, 243, 237, 0.86),
+                rgba(247, 243, 237, 0.86)
+            ),
+            url("images/family/about-family.jpg");
+    }
+
+    .about-content {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .about-content h2 {
+        font-size: 38px;
+        margin: 0 0 35px;
+    }
+
+    .about-content p {
+        font-size: 17px;
+        line-height: 1.55;
+        margin: 0 0 22px;
+    }
+
+}
+/* Настройка «О нас» для широкого экрана */
+
+@media (min-width: 601px) {
+
+    .about-background {
+        min-height: 1000px;
+        padding: 55px 20px 40px;
+
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .about-content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .about-content h2 {
+        font-size: 52px;
+        margin: 0 0 55px;
+    }
+
+    .about-content p {
+        font-size: 21px;
+        line-height: 1.75;
+        margin: 0 0 30px;
+    }
+
+}
+.person-date {
+    margin: -18px 0 22px;
+
+    font-size: 18px;
+    color: rgba(43, 37, 32, 0.60);
+}
+/* ================================
+   FOOTER
+   ================================ */
+
+.site-footer {
+    border-top: 1px solid #ddd2c5;
+    background: #f2ede6;
+    padding: 55px 20px 45px;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.footer-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    color: #2b2520;
+
+    margin-bottom: 10px;
+}
+
+.footer-text {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: rgba(43, 37, 32, 0.65);
+
+    margin-bottom: 22px;
+}
+
+.footer-home {
+    color: #4a3a2a;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.footer-home:hover {
+    color: #2b2520;
+    transform: translateY(-2px);
+}
+
+
+/* Телефон */
+
+@media (max-width: 600px) {
+
+    .site-footer {
+        padding: 45px 20px 35px;
+    }
+
+    .footer-title {
+        font-size: 26px;
+    }
+
+    .footer-text,
+    .footer-home {
+        font-size: 15px;
+    }
+
+}
+/* ================================
+   ФОТОАЛЬБОМЫ ПО ГОДАМ
+   ================================ */
+
+.album-cover {
+    position: relative;
+
+    width: 210px;
+    height: 145px;
+
+    margin-bottom: 16px;
+
+    padding: 7px;
+
+    background: #faf8f4;
+
+    border: 1px solid rgba(120, 95, 70, 0.18);
+
+    box-shadow:
+        0 8px 18px rgba(60, 45, 30, 0.12),
+        0 2px 4px rgba(60, 45, 30, 0.08);
+
+    transform: rotate(-1deg);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.album-cover::before {
+    content: "";
+
+    position: absolute;
+
+    left: 6px;
+    top: 6px;
+
+    width: 100%;
+    height: 100%;
+
+    background: #e9e1d7;
+
+    border: 1px solid rgba(120, 95, 70, 0.12);
+
+    z-index: -1;
+
+    transform: translate(6px, 6px) rotate(2deg);
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.album-folder:hover .album-cover {
+    transform: rotate(0deg) translateY(-5px);
+
+    box-shadow:
+        0 14px 28px rgba(60, 45, 30, 0.16),
+        0 3px 6px rgba(60, 45, 30, 0.10);
+}
+/* ================================
+   УЛУЧШЕНИЕ ОБЛОЖЕК «НАШЕГО АЛЬБОМА»
+   ================================ */
+
+.album-folder {
+    min-height: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 10px;
+
+    background: transparent;
+    border: none;
+    border-radius: 0;
+
+    color: #4a3a2a;
+    text-decoration: none;
+
+    transition: transform 0.3s ease;
+}
+
+.album-folder:hover {
+    transform: translateY(-5px);
+
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.album-cover {
+    width: 230px;
+    height: 160px;
+
+    margin-bottom: 14px;
+
+    padding: 7px;
+
+    background: #faf8f4;
+
+    border: 1px solid rgba(120, 95, 70, 0.18);
+
+    box-shadow:
+        0 8px 18px rgba(60, 45, 30, 0.12),
+        0 2px 4px rgba(60, 45, 30, 0.08);
+
+    transform: rotate(-1deg);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.album-folder:hover .album-cover {
+    transform: rotate(0deg) translateY(-4px) scale(1.02);
+
+    box-shadow:
+        0 14px 28px rgba(60, 45, 30, 0.16),
+        0 3px 6px rgba(60, 45, 30, 0.10);
+}
+
+.album-cover::before {
+    content: "";
+
+    position: absolute;
+
+    left: 6px;
+    top: 6px;
+
+    width: 100%;
+    height: 100%;
+
+    background: #e9e1d7;
+
+    border: 1px solid rgba(120, 95, 70, 0.12);
+
+    z-index: -1;
+
+    transform: translate(6px, 6px) rotate(2deg);
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.album-folder span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    line-height: 1.2;
+
+    color: #4a3a2a;
+}
+
+
+/* Телефон */
+
+@media (max-width: 600px) {
+
+    .album-folders {
+        gap: 30px;
+    }
+
+    .album-folder {
+        padding: 5px;
+    }
+
+    .album-cover {
+        width: min(82vw, 300px);
+        height: auto;
+
+        aspect-ratio: 3 / 2;
+
+        margin-bottom: 12px;
+    }
+
+    .album-folder span {
+        font-size: 24px;
+    }
+
+}
+/* Количество фотографий в альбоме */
+
+.album-count {
+    display: block;
+    margin-top: 3px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+
+    color: rgba(74, 58, 42, 0.48);
+}
+
+@media (max-width: 600px) {
+
+    .album-count {
+        font-size: 11px;
+        margin-top: 2px;
+    }
+
+}
+
+/* =====================================
+   ДИНАМИКА ПРИ ПРОКРУТКЕ
+   ===================================== */
+
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(55px) scale(0.97);
+    filter: blur(6px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(.2,.8,.2,1),
+        filter 0.8s ease;
+}
+
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+
+/* Верхний блок */
+
+.person-intro.reveal-on-scroll {
+    transform: translateY(60px) scale(0.98);
+}
+
+.person-intro.reveal-on-scroll.visible {
+    transform: translateY(0) scale(1);
+}
+
+
+/* Годы */
+
+.year-gallery.reveal-on-scroll {
+    transform: translateY(50px);
+}
+
+.year-gallery.reveal-on-scroll.visible {
+    transform: translateY(0);
+}
+
+
+/* Фотографии */
+
+.year-photos img.reveal-on-scroll {
+    transform: translateY(45px) scale(0.95);
+}
+
+.year-photos img.reveal-on-scroll.visible {
+    transform: translateY(0) scale(1);
+}
+
+
+/* Каждая фотография чуть позже предыдущей */
+
+.year-photos img:nth-child(1) {
+    transition-delay: 0.00s;
+}
+
+.year-photos img:nth-child(2) {
+    transition-delay: 0.10s;
+}
+
+.year-photos img:nth-child(3) {
+    transition-delay: 0.20s;
+}
+
+.year-photos img:nth-child(4) {
+    transition-delay: 0.30s;
+}
+
+.year-photos img:nth-child(5) {
+    transition-delay: 0.40s;
+}
+
+.year-photos img:nth-child(6) {
+    transition-delay: 0.50s;
+}
+
+
+/* Кнопка возврата */
+
+.person-back.reveal-on-scroll {
+    transform: translateY(30px);
+}
+
+.person-back.reveal-on-scroll.visible {
+    transform: translateY(0);
+}
+
+
+/* Мобильный вариант */
+
+@media (max-width: 600px) {
+
+    .reveal-on-scroll {
+        transform: translateY(35px) scale(0.98);
+        filter: blur(4px);
+    }
+
+}
+/* =====================================
+   ДИНАМИКА ОБЩЕГО АЛЬБОМА
+   ===================================== */
+
+.album-year-section.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    filter: blur(5px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s cubic-bezier(.2,.8,.2,1),
+        filter 0.5s ease;
+}
+
+.album-year-section.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+
+/* Фотографии общего альбома */
+
+.album-year-photos img.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(35px) scale(0.97);
+    filter: blur(3px);
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s cubic-bezier(.2,.8,.2,1),
+        filter 0.45s ease;
+}
+
+.album-year-photos img.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+
+/* Фотографии появляются по очереди */
+
+.album-year-photos img:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.album-year-photos img:nth-child(2) {
+    transition-delay: 0.05s;
+}
+
+.album-year-photos img:nth-child(3) {
+    transition-delay: 0.10s;
+}
+
+.album-year-photos img:nth-child(4) {
+    transition-delay: 0.15s;
+}
+
+.album-year-photos img:nth-child(5) {
+    transition-delay: 0.20s;
+}
+
+.album-year-photos img:nth-child(6) {
+    transition-delay: 0.25s;
+}
+/* =====================================
+   ДИНАМИКА «НАШЕГО АЛЬБОМА»
+   ===================================== */
+
+.album-section.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(35px);
+    filter: blur(3px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s cubic-bezier(.2,.8,.2,1),
+        filter 0.5s ease;
+}
+
+.album-section.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+
+/* Обложки альбомов */
+
+.album-folder.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(35px) scale(0.94);
+    filter: blur(3px);
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s cubic-bezier(.2,.8,.2,1),
+        filter 0.45s ease;
+}
+
+.album-folder.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+
+/* Обложки появляются по очереди */
+
+.album-folder:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.album-folder:nth-child(2) {
+    transition-delay: 0.08s;
+}
+
+.album-folder:nth-child(3) {
+    transition-delay: 0.16s;
+}
+
+.album-folder:nth-child(4) {
+    transition-delay: 0.24s;
+}
+
+
+/* При наведении сохраняем эффект альбома */
+
+.album-folder.reveal-on-scroll.visible:hover {
+    transform: translateY(-5px);
+}
+/* =====================================
+   ДИНАМИКА ГЛАВНОГО ЭКРАНА
+   ===================================== */
+
+.hero.reveal-on-scroll {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: blur(6px);
+
+    transition:
+        opacity 1s ease-out,
+        transform 1.5s cubic-bezier(.16,.72,.24,1),
+        filter 1s ease-out;
+}
+
+.hero.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+
+
+/* Подписи людей */
+
+.family-person.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+    filter: blur(2px);
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s cubic-bezier(.2,.8,.2,1),
+        filter 0.45s ease;
+}
+
+.family-person.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+
+/* Последовательное появление */
+
+.family-person:nth-child(2) {
+    transition-delay: 0.05s;
+}
+
+.family-person:nth-child(3) {
+    transition-delay: 0.12s;
+}
+
+.family-person:nth-child(4) {
+    transition-delay: 0.19s;
+}
+
+.family-person:nth-child(5) {
+    transition-delay: 0.26s;
+}
+
+.family-person:nth-child(6) {
+    transition-delay: 0.33s;
+}
+
+
+/* Наведение */
+
+.family-person a {
+    transition:
+        background 0.25s ease,
+        transform 0.3s cubic-bezier(.2,.8,.2,1),
+        opacity 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.3s ease;
+}
+
+.family-person a:hover {
+    box-shadow: 0 8px 20px rgba(30, 25, 20, 0.16);
+}
+/* =====================================
+   ДИНАМИКА ВЕРХНЕГО МЕНЮ
+   ===================================== */
+
+.site-header nav a {
+    position: relative;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* Убираем стандартное подчёркивание */
+
+.site-header nav a:hover {
+    text-decoration: none;
+}
+
+
+/* Анимированная линия */
+
+.site-header nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 100%;
+    height: 1px;
+
+    background: #4a3a2a;
+
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition:
+        transform 0.3s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* Наведение */
+
+.site-header nav a:hover {
+    color: #4a3a2a;
+    transform: translateY(-1px);
+}
+
+.site-header nav a:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* Нажатие */
+
+.site-header nav a:active {
+    transform: translateY(1px) scale(0.98);
+}
+/* =====================================
+   КРАСИВАЯ КНОПКА «В НАЧАЛО»
+   ===================================== */
+
+.to-top {
+    width: 54px;
+    height: 54px;
+
+    right: 24px;
+    bottom: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.55),
+            rgba(240, 232, 222, 0.78)
+        );
+
+    color: #4a3a2a;
+
+    font-size: 27px;
+    font-family: Arial, sans-serif;
+    font-weight: 300;
+
+    box-shadow:
+        0 8px 22px rgba(60, 45, 30, 0.18),
+        inset 0 1px 1px rgba(255, 255, 255, 0.7);
+
+    backdrop-filter: blur(8px);
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease,
+        transform 0.3s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* Появление */
+
+.to-top.show {
+    opacity: 1;
+    visibility: visible;
+
+    animation: toTopAppear 0.45s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* Мягкое появление */
+
+@keyframes toTopAppear {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.82);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Лёгкое движение стрелки */
+
+.to-top-arrow {
+    display: inline-block;
+
+    animation:
+        arrowFloat 1.8s ease-in-out infinite;
+}
+
+@keyframes arrowFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+
+}
+
+
+/* Наведение */
+
+.to-top:hover {
+    transform: translateY(-5px) scale(1.08);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.72),
+            rgba(240, 232, 222, 0.95)
+        );
+
+    box-shadow:
+        0 14px 32px rgba(60, 45, 30, 0.24),
+        inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+
+/* Нажатие */
+
+.to-top:active {
+    transform: translateY(-2px) scale(0.96);
+}
+
+
+/* Телефон */
+
+@media (max-width: 600px) {
+
+    .to-top {
+        width: 46px;
+        height: 46px;
+
+        right: 16px;
+        bottom: 16px;
+
+        font-size: 23px;
+    }
+
+}
+/* =====================================
+   ЕДИНЫЙ СТИЛЬ НАВИГАЦИОННЫХ ССЫЛОК
+   ===================================== */
+
+.person-back a,
+.back-to-album,
+.footer-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    border: 1px solid rgba(120, 95, 70, 0.18);
+    border-radius: 12px;
+
+    background: rgba(255, 250, 242, 0.55);
+
+    color: #4a3a2a;
+
+    text-decoration: none;
+
+    backdrop-filter: blur(5px);
+
+    box-shadow:
+        0 5px 14px rgba(60, 45, 30, 0.07);
+
+    transition:
+        transform 0.3s cubic-bezier(.2,.8,.2,1),
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Наведение */
+
+.person-back a:hover,
+.back-to-album:hover,
+.footer-home:hover {
+    transform: translateY(-4px);
+
+    background: rgba(255, 250, 242, 0.88);
+
+    border-color: rgba(120, 95, 70, 0.32);
+
+    box-shadow:
+        0 10px 22px rgba(60, 45, 30, 0.13);
+}
+
+
+/* Нажатие */
+
+.person-back a:active,
+.back-to-album:active,
+.footer-home:active {
+    transform: translateY(-1px) scale(0.98);
+}
+/* =====================================
+   ДИНАМИКА LIGHTBOX
+   ===================================== */
+
+.lightbox-image {
+    opacity: 0;
+    
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.4s cubic-bezier(.2,.8,.2,1);
+}
+
+.lightbox.show .lightbox-image {
+    opacity: 1;
+    
+}
+
+
+/* Короткая анимация при смене фотографии */
+
+.lightbox-image.switching {
+    opacity: 0;
+    transform: scale(0.96);
+}
+
+
+/* Сам фон Lightbox */
+
+.lightbox {
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+
+/* Кнопки тоже появляются мягко */
+
+.lightbox.show .lightbox-close,
+.lightbox.show .lightbox-arrow,
+.lightbox.show .lightbox-counter {
+    animation: lightboxControlsIn 0.4s ease-out both;
+}
+
+@keyframes lightboxControlsIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+/* =====================================
+   МЯГКОЕ ПОЯВЛЕНИЕ ФОТО В LIGHTBOX
+   ===================================== */
+
+.lightbox-image {
+    opacity: 0;
+    filter: blur(8px);
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.55s cubic-bezier(.2,.8,.2,1),
+        filter 0.45s ease;
+}
+
+.lightbox.show .lightbox-image {
+    opacity: 1;
+    filter: blur(0);
+}
+/* =====================================
+   МЯГКОЕ НАВЕДЕНИЕ НА ФОТОГРАФИИ
+   ===================================== */
+
+/* Личные галереи */
+.year-photos img.reveal-on-scroll.visible:hover {
+    transform: translateY(-4px) scale(1.015);
+
+    box-shadow:
+        0 12px 28px rgba(60, 45, 30, 0.18);
+}
+
+/* Общий альбом */
+.album-year-photos img.reveal-on-scroll.visible:hover {
+    transform: translateY(-4px) scale(1.015);
+
+    box-shadow:
+        0 14px 30px rgba(60, 45, 30, 0.18);
+}
+/* =====================================
+   Портреты членов семьи — наведение
+   ===================================== */
+
+.person-portrait-image {
+    transition:
+        transform 0.35s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.35s ease;
+}
+
+.person-portrait-image:hover {
+    transform: scale(1.035);
+
+    box-shadow:
+        0 10px 26px rgba(60, 45, 30, 0.16);
+}
+/* =====================================
+   ПАРАЛЛАКС ГЛАВНОЙ ФОТОГРАФИИ
+   ===================================== */
+
+.family-photo {
+    will-change: transform;
+}
+
+.family-person {
+    will-change: transform;
+}
+
+/* На телефоне эффект слабее */
+@media (max-width: 600px) {
+
+    .family-person {
+        translate: 0 var(--family-parallax-y, 0px);
+    }
+
+}
+/* =====================================
+   ПОЭТАПНОЕ ПОЯВЛЕНИЕ БЛОКА СЕМЬИ
+   ===================================== */
+
+/* Портрет */
+.person-intro.reveal-on-scroll .person-portrait {
+    opacity: 0;
+    transform: translateX(-80px) scale(0.88);
+    filter: blur(8px);
+
+    transition:
+        opacity 1s ease,
+        transform 1.1s cubic-bezier(.16,.72,.24,1),
+        filter 0.9s ease;
+}
+
+.person-intro.reveal-on-scroll.visible .person-portrait {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+}
+
+
+/* Текст */
+.person-intro.reveal-on-scroll .person-info {
+    opacity: 0;
+    transform: translateX(70px);
+    filter: blur(6px);
+
+    transition:
+        opacity 0.9s ease 0.22s,
+        transform 1s cubic-bezier(.16,.72,.24,1) 0.22s,
+        filter 0.8s ease 0.22s;
+}
+
+.person-intro.reveal-on-scroll.visible .person-info {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+}
+@media (max-width: 600px) {
+
+    .person-intro.reveal-on-scroll .person-portrait {
+        transform: translateY(35px) scale(0.9);
+    }
+
+    .person-intro.reveal-on-scroll.visible .person-portrait {
+        transform: translateY(0) scale(1);
+    }
+
+    .person-intro.reveal-on-scroll .person-info {
+        transform: translateY(30px);
+    }
+
+    .person-intro.reveal-on-scroll.visible .person-info {
+        transform: translateY(0);
+    }
+
+}
+/* =====================================
+   ЭФФЕКТ ОТКРЫТИЯ ГОДА
+   ===================================== */
+
+.year-gallery.reveal-on-scroll h3 {
+    position: relative;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+}
+
+.year-gallery.reveal-on-scroll h3::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 0;
+    height: 1px;
+
+    background: rgba(120, 95, 70, 0.45);
+
+    transform: translateX(-50%);
+
+    transition:
+        width 0.7s cubic-bezier(.2,.8,.2,1),
+        opacity 0.5s ease;
+    
+    opacity: 0;
+}
+
+.year-gallery.reveal-on-scroll.visible h3::after {
+    width: 46px;
+    opacity: 1;
+}
+/* =====================================
+   ПОСЛЕДОВАТЕЛЬНОЕ ПОЯВЛЕНИЕ ФОТОГРАФИЙ
+   ПЕРСОНАЛЬНЫХ АЛЬБОМОВ
+   ===================================== */
+
+.year-photos img.reveal-on-scroll.visible {
+    animation: familyPhotoSettle 0.7s cubic-bezier(.16,.72,.24,1) both;
+}
+
+.year-photos img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.year-photos img:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+.year-photos img:nth-child(3) {
+    animation-delay: 0.16s;
+}
+
+.year-photos img:nth-child(4) {
+    animation-delay: 0.24s;
+}
+
+.year-photos img:nth-child(5) {
+    animation-delay: 0.32s;
+}
+
+.year-photos img:nth-child(6) {
+    animation-delay: 0.40s;
+}
+
+@keyframes familyPhotoSettle {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+        filter: blur(3px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+
+}
+/* =====================================
+   БУМАЖНАЯ ФАКТУРА ФОНА
+   ===================================== */
+
+body {
+    background-color: #f7f3ed;
+
+    background-image:
+        radial-gradient(
+            rgba(100, 78, 55, 0.055) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            rgba(100, 78, 55, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        9px 9px,
+        15px 15px;
+
+    background-position:
+        0 0,
+        5px 7px;
+}
+/* =====================================
+   СТАБИЛИЗАЦИЯ КРАЁВ ФОТОГРАФИЙ
+   ПРИ ПРОКРУТКЕ
+   ===================================== */
+
+.year-photos img,
+.album-year-photos img {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.year-photos img.reveal-on-scroll,
+.album-year-photos img.reveal-on-scroll {
+    will-change: transform, opacity, filter;
+}
+/* =====================================
+   СЕРДЕЧКО ПРИ КЛИКЕ МЫШКОЙ
+   ===================================== */
+
+.click-heart {
+    position: fixed;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    color: #d94a4a;
+
+    font-size: 20px;
+    line-height: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.4);
+
+    opacity: 0;
+
+    animation:
+        clickHeartPop 0.6s cubic-bezier(.16,.72,.24,1)
+        forwards;
+}
+
+@keyframes clickHeartPop {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(0.35);
+    }
+
+    20% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+    }
+
+    45% {
+        opacity: 1;
+        transform:
+            translate(-50%, -58%)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%, -85%)
+            scale(0.82);
+    }
+}
+
+
+/* На устройствах без мыши эффект не нужен */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .click-heart {
+        display: none;
+    }
+
+}
+/* =====================================
+   ДЕКОРАТИВНЫЕ РАЗДЕЛИТЕЛИ РАЗДЕЛОВ
+   ===================================== */
+
+.person-section::after,
+.album-section::after {
+    content: "•  •  •";
+
+    display: block;
+
+    margin: 55px auto 0;
+
+    text-align: center;
+
+    font-size: 13px;
+    letter-spacing: 0.35em;
+
+    color: rgba(120, 95, 70, 0.32);
+}
+/* =====================================
+   ЭФФЕКТ ФОТОГРАФИЧЕСКОЙ РАМКИ
+   ===================================== */
+
+.year-photos img,
+.album-year-photos img {
+    box-shadow:
+        0 0 0 4px rgba(255, 252, 247, 0.70),
+        0 8px 22px rgba(60, 45, 30, 0.14);
+}
+/* =========================================
+   НОВЫЙ ЛОГОТИП — СЕМЕЙНЫЙ АЛЬБОМ
+   Вариант №2
+   ========================================= */
+
+.site-brand {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    min-width: 0;
+}
+
+/* Камера */
+.brand-camera {
+    width: 58px;
+    height: 58px;
+    border: 2px solid #b58a3c;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.brand-camera svg {
+    width: 38px;
+    height: 38px;
+
+    fill: none;
+    stroke: #17324d;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Вертикальная золотая линия */
+.brand-divider {
+    width: 1px;
+    height: 55px;
+    background: #b58a3c;
+    opacity: 0.75;
+}
+
+/* Блок текста */
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Главная надпись */
+.site-header .brand-text h1 {
+    margin: 0;
+
+    font-family:
+        "Segoe Script",
+        "Brush Script MT",
+        cursive;
+
+    font-size: 48px;
+    line-height: 0.95;
+    font-weight: 500;
+
+    color: #17324d;
+    letter-spacing: -1px;
+}
+
+/* Подзаголовок */
+.brand-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    margin-top: 8px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 11px;
+    letter-spacing: 6px;
+    font-weight: 500;
+
+    color: #17324d;
+
+    white-space: nowrap;
+}
+
+/* Золотые линии по сторонам */
+.brand-subtitle span {
+    display: block;
+    width: 55px;
+    height: 1px;
+
+    background: #b58a3c;
+}
+
+/* Маленький декоративный элемент */
+.brand-subtitle::before {
+    content: "❦";
+
+    position: absolute;
+
+    margin-top: -27px;
+
+    font-size: 20px;
+    color: #b58a3c;
+}
+
+
+/* =========================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .site-brand {
+        gap: 10px;
+    }
+
+    /* На телефоне камера и линия не нужны —
+       оставляем красивое компактное название */
+    .brand-camera,
+    .brand-divider {
+        display: none;
+    }
+
+    .brand-text {
+        align-items: flex-start;
+    }
+
+    .site-header .brand-text h1 {
+        font-family:
+            "Segoe Script",
+            "Brush Script MT",
+            cursive;
+
+        font-size: 27px;
+        line-height: 1;
+        letter-spacing: -0.5px;
+
+        color: #17324d;
+    }
+
+    .brand-subtitle {
+        margin-top: 3px;
+
+        font-size: 7px;
+        letter-spacing: 3px;
+
+        gap: 6px;
+    }
+
+    .brand-subtitle span {
+        width: 20px;
+    }
+
+    .brand-subtitle::before {
+        display: none;
+    }
+}
+/* =========================================
+   ФИКС ГОРИЗОНТАЛЬНОГО СКРОЛЛА
+   ========================================= */
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+main {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.hero {
+    max-width: 100%;
+}
+
+.family-photo {
+    max-width: 100%;
+}
+/* =========================================
+   МОБИЛЬНЫЙ ЛОГОТИП — СЕМЕЙНЫЙ АЛЬБОМ
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    /* Шапка */
+    .site-header {
+        height: 60px;
+        padding: 0 20px;
+    }
+
+    /* Новый логотип */
+    .site-brand {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        height: 60px;
+    }
+
+    /* Камеру на телефоне убираем */
+    .brand-camera,
+    .brand-divider {
+        display: none;
+    }
+
+    .brand-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    /* Наша семья */
+    .site-header .brand-text h1 {
+        margin: 0;
+
+        font-family:
+            "Segoe Script",
+            "Brush Script MT",
+            cursive;
+
+        font-size: 27px;
+        line-height: 1;
+        font-weight: 500;
+
+        letter-spacing: -0.5px;
+        color: #17324d;
+    }
+
+    /* СЕМЕЙНЫЙ АЛЬБОМ */
+    .brand-subtitle {
+        margin-top: 3px;
+
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        font-family:
+            Georgia,
+            "Times New Roman",
+            serif;
+
+        font-size: 7px;
+        line-height: 1;
+
+        letter-spacing: 3px;
+        color: #17324d;
+        white-space: nowrap;
+    }
+
+    .brand-subtitle span {
+        width: 20px;
+        height: 1px;
+        background: #b58a3c;
+    }
+
+    .brand-subtitle::before {
+        display: none;
+    }
+
+    /* Кнопка меню остаётся как была */
+    .mobile-menu-button {
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+/* =====================================
+   ДЕКОРАТИВНЫЙ ОТСТУП ПОСЛЕ ГЛАВНОГО ФОТО
+   ===================================== */
+
+.hero-spacer {
+    display: none;
+}
+
+@media (max-width: 800px) {
+
+    .hero-spacer {
+        height: 150px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #f7f3ed;
+    }
+
+    .hero-ornament {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 16px;
+
+        color: rgba(181, 138, 60, 0.75);
+    }
+
+    .hero-ornament span {
+        width: 55px;
+        height: 1px;
+        background: rgba(181, 138, 60, 0.55);
+    }
+
+    .hero-ornament b {
+        font-family: Georgia, serif;
+        font-size: 25px;
+        font-weight: normal;
+        line-height: 1;
+    }
+}
